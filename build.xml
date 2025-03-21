@@ -1,0 +1,42 @@
+<project name="MyProject" default="usage" basedir=".">
+
+    <property environment="env" />
+
+    <description>
+        Project build file...
+    </description>
+
+    <target name="usage">
+        <fail unless="env.ANT_HOME" message="Environment variable ANT_HOME was not found on your system!" />
+        <exec executable="${env.ANT_HOME}\bin\ant.bat">
+            <arg value="-projecthelp" />
+            <arg value="-buildfile" />
+            <arg value="${ant.file}" />
+        </exec>
+    </target>
+
+    <target name="clean.all" description="Clean all not essential elements">
+
+        <echo message="Clean generated directories" />
+        <delete dir="./node_modules" />
+        <delete dir="./target" />
+        <delete dir="./src/main/frontend/generated" />
+
+    </target>
+
+    <target name="clean" description="Clean all not essential elements using maven">
+        <fail unless="env.MAVEN_HOME" message="Environment variable MAVEN_HOME was not found on your system!" />
+        <exec executable="${env.MAVEN_HOME}\bin\mvn">
+            <arg value="clean" />
+        </exec>
+    </target>
+
+    <target name="package.electron" description="Create Electron app ready for distribution">
+        <fail unless="env.MAVEN_HOME" message="Environment variable MAVEN_HOME was not found on your system!" />
+        <exec executable="${env.MAVEN_HOME}\bin\mvn">
+            <arg value="package" />
+            <arg value="-Pproduction" />
+        </exec>
+    </target>
+
+</project>
