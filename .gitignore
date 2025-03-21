@@ -4,3 +4,8 @@ target/
 node_modules/
 src/main/frontend/generated/
 vite.generated.ts
+.idea
+.vscode
+.mvn
+.github
+package-lock.json
