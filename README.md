@@ -1,6 +1,6 @@
 # Electron & Vaadin Hilla Template
 
-The goal of this template is to allow you to create a desktop app using React for the UI and Java for the application logic.
+The goal of this template/skeleton is to allow you to create a wrap of a web app, resulting into a desktop app, using React for the UI and Java for the application logic.
 
 This project is inspired in two repositories:
 - https://github.com/vaadin/skeleton-starter-hilla-react
